@@ -1,3 +1,4 @@
+import agentStackPreferencesImage from './assets/agent-stack-preferences.png';
 import liveFlightRulesImage from './assets/liveflightrules-profile.png';
 
 export type Link = {
@@ -76,8 +77,8 @@ export type ResumeData = {
 };
 
 export const resume: ResumeData = {
-  name: '黎思奇',
-  profile: ['31岁', '9年工作经验', '中山大学本科(软件工程)', '已离职', '优才获批'],
+  name: '黎思奇 · Dylan',
+  profile: ['31岁', '9年工作经验', '离职状态', '中山大学本科(软件工程)', '优才获批'],
   target: 'Frontend Engineer (Web) / Fullstack Engineer',
   contact: [
     { label: '电话', value: '+86 17620754747', href: 'tel:+8617620754747' },
@@ -92,12 +93,16 @@ export const resume: ResumeData = {
       text: '软件工程专业，9年研发经验（百度、Shopee），资深前端工程师，有全栈经验（Web、H5、BFF），深耕前端工程化。',
     },
     {
+      title: '复杂架构能力',
+      text: 'TODO',
+    },
+    {
       title: '团队贡献',
       text: '长期担任前端组长，至多时虚线带5人，主导多个前端工时100~200人天的复杂需求落地；职责含项目管理、架构设计、方案把控等；担任面试官完成30+场面试。',
     },
     {
       title: 'AI应用',
-      text: '离职后持续关注前沿技术，使用AI搭建股市量化项目及运营自媒体（一个月1200粉）；自研agent技术栈管理工具等。',
+      text: '离职后持续关注前沿技术，使用AI搭建股市量化项目及运营自媒体；自研agent技术栈管理工具等。',
     },
   ],
   skills: [
@@ -132,7 +137,9 @@ export const resume: ResumeData = {
             'Shopee供应链全场景管理应用，覆盖物流运营、仓储和站点管理、出入库、关键指标、员工管理等，面向8个国家的一线运营、仓库员工、区域管理、中高层等多角色使用。',
           contributions: [
             '主导搭建双端页面（H5+PC）+ BFF服务（Golang+Chassis），支持Web、Android、IOS三平台。',
-            '核心技术包括H5/PC双端页面组件（一份代码双端可用，节省100+人天工时）、BFF流量分发与权限体系、对接多后端服务、配置型CRUD数据管理、离线包版本管理与灰度、全流程监控日志等。',
+            '设计H5/PC双端组件方案，一份代码双端可用，组件内部抹平差异，构建层隔离产物，节省100+人天工时。',
+            '设计双端灰度版本功能，支持按region、user等多维度灰度发布，移动端离线包性能优化等。',
+            'BFF服务实现流量分发与权限体系、对接6个后端服务、配置型CRUD数据管理、离线包版本管理与灰度、全流程监控日志等功能。',
           ],
         },
         {
@@ -140,12 +147,12 @@ export const resume: ResumeData = {
           description:
             'Shopee供应链资产管理系统，8国数千站点和仓库使用，覆盖资产采购、出入库、调拨、盘点等全流程管理。',
           contributions: [
-            '作为前端负责人，在老项目vue+webpack技术栈基础上，自研向react+vite渐进式迁移方案，收敛部门技术栈，复用react组件和页面级实践，节省100+人天工时。',
+            '主导在老项目vue+webpack技术栈基础上，自研向react+vite渐进式迁移方案，收敛部门技术栈，复用react组件和页面级实践，节省50+人天工时，项目上线后月均净资产损失约减少4.8%（数十万美金）。',
             '解决双技术栈共存的工程问题，包括JSX编译隔离、组件样式隔离、目录分层和边界限制、路由转换、状态通信等全套方案。',
           ],
         },
       ],
-      highlights: ['主导微前端项目架构迁移、vue > react 全项目重构（总工时400+人天）、时序图可视化平台搭建等。'],
+      highlights: ['主导跨3～4系统（100+人天）复杂需求落地、微前端项目架构迁移、vue > react 全项目重构（总工时400+人天）、时序图可视化平台搭建等。'],
     },
     {
       period: '2017.7 ~ 2020.5',
@@ -257,18 +264,24 @@ export const resume: ResumeData = {
       ],
     },
     {
-      label: '开源工具 | Agent Stack Perferences',
-      value: 'github.com/Xooone47/agent-stack-preferences',
-      href: 'https://github.com/Xooone47/agent-stack-preferences/tree/main',
-    },
-    {
-      label: 'AI x 量化抖音自媒体',
+      label: 'AI x 量化自媒体',
       value: '抖音号：LiveFlightRules',
       description:
-        '使用AI基于Next、Python等技术栈，搭建包含数据采集与分析、web可视化、定时提醒等功能的量化回测项目，并将生成视频口播、封面和插图，以及量化分析等沉淀成skill，提升生产效率。',
+        '使用AI基于Next、Python、Node Server、Pnpm MonoRepo等技术栈，搭建包含数据采集与分析、web可视化、量化信号提醒等功能的量化回测项目，并将生成视频口播、封面和插图，以及量化分析等流程沉淀成skill，提升生产效率。一个月涨粉1200+。',
       image: {
         src: liveFlightRulesImage,
         alt: 'LiveFlightRules 抖音主页截图',
+      },
+    },
+    {
+      label: '开源工具 | Agent Stack Preferences',
+      value: 'github.com/Xooone47/agent-stack-preferences',
+      href: 'https://github.com/Xooone47/agent-stack-preferences/tree/main',
+      description:
+        '面向AI Coding Agent的技术栈偏好管理工具，支持可视化配置Frontend、Backend、Others等偏好块，并将个人常用技术选择同步到Codex、Claude Code等agent instruction文件。工具提供预设值、字段校验和自定义包名输入，减少在不同项目中反复维护AGENTS.md/CLAUDE.md技术偏好的成本。',
+      image: {
+        src: agentStackPreferencesImage,
+        alt: 'Agent Stack Preferences README 截图',
       },
     },
   ],

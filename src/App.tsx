@@ -1,5 +1,13 @@
 import profilePhoto from './assets/profile-photo.jpg';
-import { resume, type Experience, type Link, type Project, type ShowcaseLink, type SummaryItem } from './resumeData';
+import {
+  resume,
+  type Experience,
+  type Link,
+  type Project,
+  type ShowcaseLink,
+  type SkillGroup,
+  type SummaryItem,
+} from './resumeData';
 
 function ExternalLink({ link }: { link: Link }) {
   if (!link.href) {
@@ -42,6 +50,22 @@ function SummaryList({ items }: { items: SummaryItem[] }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+function SummarySkills({ items }: { items: SkillGroup[] }) {
+  return (
+    <div className="summary-skills" aria-label="技术栈">
+      <strong className="summary-skills-label">技术栈</strong>
+      <div className="summary-skill-list">
+        {items.map((group) => (
+          <p className="summary-skill-group" key={group.title}>
+            <strong>{group.title}</strong>
+            <span>{group.items.join(' / ')}</span>
+          </p>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -130,7 +154,7 @@ function ExperienceBlock({ experience }: { experience: Experience }) {
       </div>
       {experience.highlights ? (
         <div className="project-block minor-block">
-          <h4>其他</h4>
+          <h4>多个供应链平台搭建与维护</h4>
           <BulletList items={experience.highlights} />
         </div>
       ) : null}
@@ -139,10 +163,14 @@ function ExperienceBlock({ experience }: { experience: Experience }) {
 }
 
 function App() {
+  const [displayName, aliasName] = resume.name.split(' · ');
+  const profileMain = resume.profile.slice(0, 3).join(' · ');
+  const profileStatus = resume.profile.slice(3).join(' · ');
+
   return (
     <main className="app-shell">
       <div className="toolbar" aria-label="简历操作">
-        <span>Web Resume 2026</span>
+        <span>Siqi Li‘s CV</span>
         <button type="button" onClick={() => window.print()} aria-label="导出 PDF">
           <span aria-hidden="true">↓</span>
           导出 PDF
@@ -151,13 +179,29 @@ function App() {
 
       <article className="resume-sheet" aria-label="黎思奇 2026 简历">
         <header className="resume-header">
-          <div>
-            <h1>{resume.name}</h1>
-            <p className="profile-line">{resume.profile.join(' · ')}</p>
-            <p className="target">
+          <div className="header-main">
+            <div className="identity-row">
+              <div className="identity-copy">
+                <h1 className="name-line">
+                  <span>{displayName}</span>
+                  {aliasName ? (
+                    <>
+                      <span className="name-separator">·</span>
+                      <span className="name-alias">{aliasName}</span>
+                    </>
+                  ) : null}
+                </h1>
+                <p className="profile-line">
+                  <span>{profileMain}</span>
+                  <span>{profileStatus}</span>
+                </p>
+              </div>
+              <img className="profile-photo" src={profilePhoto} alt="黎思奇证件照" />
+            </div>
+            <div className="target">
               <span className="target-label">求职意向：</span>
-              <span className="target-role">{resume.target}</span>
-            </p>
+              <p className="target-role">{resume.target}</p>
+            </div>
           </div>
           <div className="header-aside">
             <div className="contact-panel">
@@ -176,23 +220,12 @@ function App() {
                 {resume.languages.join('；')}
               </p>
             </div>
-            <img className="profile-photo" src={profilePhoto} alt="黎思奇证件照" />
           </div>
         </header>
 
         <Section title="个人总结">
           <SummaryList items={resume.summary} />
-        </Section>
-
-        <Section title="技术栈">
-          <div className="skill-grid">
-            {resume.skills.map((group) => (
-              <div className="skill-group" key={group.title}>
-                <h3>{group.title}</h3>
-                <p>{group.items.join(' / ')}</p>
-              </div>
-            ))}
-          </div>
+          <SummarySkills items={resume.skills} />
         </Section>
 
         <Section title="工作经历">

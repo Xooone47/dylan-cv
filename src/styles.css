@@ -94,11 +94,30 @@ a:hover {
 }
 
 .resume-header {
+  align-items: start;
   border-bottom: 2px solid var(--ink);
   display: grid;
-  gap: 24px;
-  grid-template-columns: minmax(0, 1fr) 392px;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) 318px;
   padding-bottom: 24px;
+}
+
+.header-main {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.identity-row {
+  align-items: start;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) 86px;
+}
+
+.identity-copy {
+  min-width: 0;
 }
 
 h1,
@@ -116,16 +135,37 @@ h1 {
   line-height: 1;
 }
 
+.name-line {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 10px;
+}
+
+.name-separator {
+  color: var(--ink);
+}
+
+.name-alias {
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
 .profile-line {
   color: var(--muted);
+  display: grid;
   font-size: 15px;
-  margin-top: 12px;
+  gap: 2px;
+  line-height: 1.5;
+  margin-top: 14px;
 }
 
 .target {
+  border-left: 3px solid rgba(154, 79, 63, 0.42);
   display: grid;
-  gap: 6px;
-  margin-top: 16px;
+  gap: 5px;
+  max-width: none;
+  padding-left: 12px;
 }
 
 .target-label {
@@ -137,9 +177,10 @@ h1 {
 
 .target-role {
   color: var(--accent);
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.25;
+  white-space: nowrap;
 }
 
 .contact-panel {
@@ -164,10 +205,7 @@ h1 {
 }
 
 .header-aside {
-  align-items: start;
-  display: grid;
-  gap: 14px;
-  grid-template-columns: minmax(0, 1fr) 84px;
+  align-self: start;
 }
 
 .profile-photo {
@@ -176,7 +214,7 @@ h1 {
   border-radius: 4px;
   display: block;
   object-fit: contain;
-  width: 84px;
+  width: 86px;
 }
 
 .section {
@@ -223,29 +261,45 @@ h1 {
   margin-right: 4px;
 }
 
-.skill-grid {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.skill-group {
-  background: rgba(247, 244, 237, 0.78);
-  border: 1px solid rgba(217, 222, 231, 0.72);
+.summary-skills {
+  align-items: start;
+  background: rgba(247, 244, 237, 0.62);
+  border: 1px solid rgba(217, 222, 231, 0.86);
+  border-left: 3px solid rgba(53, 96, 111, 0.62);
   border-radius: 6px;
-  padding: 12px 14px;
+  display: grid;
+  gap: 6px;
+  grid-template-columns: 1fr;
+  padding: 8px 12px 9px;
 }
 
-.skill-group h3 {
+.summary-skills-label {
   color: var(--accent);
-  font-size: 14px;
-  margin-bottom: 6px;
+  font-size: 13px;
+  line-height: 1.2;
+  text-align: center;
 }
 
-.skill-group p {
+.summary-skill-list {
+  display: grid;
+  gap: 3px;
+  grid-template-columns: 1fr;
+}
+
+.summary-skill-group {
+  align-items: baseline;
   color: #344252;
-  font-size: 13px;
-  line-height: 1.55;
+  display: grid;
+  font-size: 12px;
+  gap: 8px;
+  grid-template-columns: 48px minmax(0, 1fr);
+  line-height: 1.5;
+}
+
+.summary-skill-group strong {
+  color: var(--accent-2);
+  font-weight: 800;
+  margin-right: 6px;
 }
 
 .experience-list,
@@ -427,6 +481,13 @@ h1 {
   padding: 10px;
 }
 
+/* Keep right hairline borders inside PDF/image rasterization bounds. */
+.summary-skills,
+.article-link-list,
+.showcase-detail {
+  margin-right: 1px;
+}
+
 .showcase-description {
   color: #344252;
   font-size: 12px;
@@ -459,7 +520,8 @@ h1 {
 
   .resume-header,
   .experience-head,
-  .skill-grid {
+  .summary-skills,
+  .summary-skill-list {
     grid-template-columns: 1fr;
   }
 
@@ -467,8 +529,23 @@ h1 {
     font-size: 32px;
   }
 
+  .identity-row {
+    gap: 14px;
+    grid-template-columns: minmax(0, 1fr) 76px;
+  }
+
+  .profile-line {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-top: 10px;
+  }
+
   .target {
-    font-size: 18px;
+    max-width: none;
+  }
+
+  .target-role {
+    white-space: normal;
   }
 
   .time-place {
@@ -477,10 +554,6 @@ h1 {
 
   .contact-panel p {
     grid-template-columns: 48px minmax(0, 1fr);
-  }
-
-  .header-aside {
-    grid-template-columns: minmax(0, 1fr) 76px;
   }
 
   .profile-photo {
@@ -530,6 +603,7 @@ h1 {
 }
 
 @media print {
+
   :root,
   html,
   body {
@@ -550,6 +624,7 @@ h1 {
   }
 
   .resume-sheet {
+    background: #fff;
     border: 0;
     box-shadow: none;
     margin: 0;
@@ -560,7 +635,8 @@ h1 {
   }
 
   .resume-header {
-    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) 300px;
   }
 
   .section {
@@ -585,7 +661,7 @@ h1 {
     display: block;
   }
 
-  .experience-block + .experience-block {
+  .experience-block+.experience-block {
     margin-top: 16px;
   }
 
@@ -617,7 +693,7 @@ h1 {
     display: block;
   }
 
-  .bullet-list li + li {
+  .bullet-list li+li {
     margin-top: 4px;
   }
 
