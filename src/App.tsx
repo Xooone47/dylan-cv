@@ -1,0 +1,229 @@
+import profilePhoto from './assets/profile-photo.jpg';
+import { resume, type Experience, type Link, type Project, type ShowcaseLink, type SummaryItem } from './resumeData';
+
+function ExternalLink({ link }: { link: Link }) {
+  if (!link.href) {
+    return <span>{link.value}</span>;
+  }
+
+  return (
+    <a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer">
+      {link.value}
+    </a>
+  );
+}
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="section">
+      <h2>{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="bullet-list">
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
+function SummaryList({ items }: { items: SummaryItem[] }) {
+  return (
+    <ul className="bullet-list summary-list">
+      {items.map((item) => (
+        <li key={item.title}>
+          <strong>{item.title}：</strong>
+          {item.text}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function ShowcaseList({ items }: { items: ShowcaseLink[] }) {
+  return (
+    <div className="showcase-list">
+      {items.map((item) => (
+        <article className="showcase-item" key={item.label}>
+          <p className="showcase-line">
+            <strong>{item.label}</strong>
+            <ExternalLink link={item} />
+          </p>
+          {item.description || item.image ? (
+            <div className="showcase-detail">
+              {item.description ? <p className="showcase-description">{item.description}</p> : null}
+              {item.image ? <img className="showcase-image" src={item.image.src} alt={item.image.alt} /> : null}
+            </div>
+          ) : null}
+          {item.articles ? (
+            <ul className="article-link-list">
+              {item.articles.map((article) => (
+                <li key={article.href}>
+                  <a href={article.href} target="_blank" rel="noreferrer">
+                    {article.title}
+                  </a>
+                  <a className="list-url" href={article.href} target="_blank" rel="noreferrer">
+                    {article.href.replace('https://', '')}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {item.packages ? (
+            <ul className="article-link-list package-link-list">
+              {item.packages.map((packageItem) => (
+                <li key={packageItem.href}>
+                  <span className="package-summary">
+                    <a href={packageItem.href} target="_blank" rel="noreferrer">
+                      {packageItem.name}
+                    </a>
+                    <span>{packageItem.description}</span>
+                  </span>
+                  <a className="list-url" href={packageItem.href} target="_blank" rel="noreferrer">
+                    {packageItem.href.replace('https://', '')}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function ProjectBlock({ project }: { project: Project }) {
+  return (
+    <div className="project-block">
+      <h4>{project.name}</h4>
+      <p>{project.description}</p>
+      <BulletList items={project.contributions} />
+    </div>
+  );
+}
+
+function ExperienceBlock({ experience }: { experience: Experience }) {
+  return (
+    <article className="experience-block">
+      <div className="experience-head">
+        <div>
+          <h3>
+            {experience.company}
+            <span>{experience.department}</span>
+          </h3>
+          <p>{experience.title}</p>
+        </div>
+        <div className="time-place">
+          <strong>{experience.period}</strong>
+          <span>{experience.location}</span>
+        </div>
+      </div>
+      <div className="project-list">
+        {experience.projects.map((project) => (
+          <ProjectBlock key={project.name} project={project} />
+        ))}
+      </div>
+      {experience.highlights ? (
+        <div className="project-block minor-block">
+          <h4>其他</h4>
+          <BulletList items={experience.highlights} />
+        </div>
+      ) : null}
+    </article>
+  );
+}
+
+function App() {
+  return (
+    <main className="app-shell">
+      <div className="toolbar" aria-label="简历操作">
+        <span>Web Resume 2026</span>
+        <button type="button" onClick={() => window.print()} aria-label="导出 PDF">
+          <span aria-hidden="true">↓</span>
+          导出 PDF
+        </button>
+      </div>
+
+      <article className="resume-sheet" aria-label="黎思奇 2026 简历">
+        <header className="resume-header">
+          <div>
+            <h1>{resume.name}</h1>
+            <p className="profile-line">{resume.profile.join(' · ')}</p>
+            <p className="target">
+              <span className="target-label">求职意向：</span>
+              <span className="target-role">{resume.target}</span>
+            </p>
+          </div>
+          <div className="header-aside">
+            <div className="contact-panel">
+              {resume.contact.map((item) => (
+                <p key={item.label}>
+                  <span>{item.label}</span>
+                  <ExternalLink link={item} />
+                </p>
+              ))}
+              <p>
+                <span>背景</span>
+                {resume.background.join('；')}
+              </p>
+              <p>
+                <span>语言</span>
+                {resume.languages.join('；')}
+              </p>
+            </div>
+            <img className="profile-photo" src={profilePhoto} alt="黎思奇证件照" />
+          </div>
+        </header>
+
+        <Section title="个人总结">
+          <SummaryList items={resume.summary} />
+        </Section>
+
+        <Section title="技术栈">
+          <div className="skill-grid">
+            {resume.skills.map((group) => (
+              <div className="skill-group" key={group.title}>
+                <h3>{group.title}</h3>
+                <p>{group.items.join(' / ')}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        <Section title="工作经历">
+          <div className="experience-list">
+            {resume.experiences.map((experience) => (
+              <ExperienceBlock key={`${experience.company}-${experience.period}`} experience={experience} />
+            ))}
+          </div>
+        </Section>
+
+        <Section title="教育经历">
+          <article className="education-block">
+            <div>
+              <h3>
+                {resume.education.school}
+                <span>{resume.education.major}</span>
+              </h3>
+              <p>
+                {resume.education.degree} · {resume.education.period}
+              </p>
+            </div>
+            <BulletList items={resume.education.details} />
+          </article>
+        </Section>
+
+        <Section title="其他">
+          <ShowcaseList items={resume.other} />
+        </Section>
+      </article>
+    </main>
+  );
+}
+
+export default App;
