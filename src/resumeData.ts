@@ -94,7 +94,7 @@ export const resume: ResumeData = {
     },
     {
       title: '复杂架构能力',
-      text: 'TODO',
+      text: '曾主导多种类型的复杂需求或系统落地，如：面向多国家、多平台（跨3～4系统）、多终端（pc/h5+android/IOS）、多技术栈（react、vue）、全栈（前端+BFF）等。',
     },
     {
       title: '团队贡献',
