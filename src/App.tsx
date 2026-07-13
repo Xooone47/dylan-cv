@@ -258,7 +258,7 @@ function App() {
           </article>
         </Section>
 
-        <Section title="其他">
+        <Section title="其他成果">
           <ShowcaseList items={resume.other} />
         </Section>
       </article>

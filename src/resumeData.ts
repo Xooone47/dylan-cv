@@ -121,7 +121,7 @@ export const resume: ResumeData = {
     },
     {
       title: 'AI',
-      items: ['Codex', 'Claude Code', 'MCP', 'Skills', 'RAG', 'Superpowers', 'Code graph'],
+      items: ['Codex', 'Claude Code', 'MCP', 'Skills', 'RAG', 'Harness Engineering', 'Superpowers', 'Code graph'],
     },
   ],
   experiences: [
@@ -275,7 +275,7 @@ export const resume: ResumeData = {
       label: 'AI x 量化自媒体',
       value: '抖音号：LiveFlightRules',
       description:
-        '使用AI基于Next、Python、Node Server、Pnpm MonoRepo等技术栈，搭建包含数据采集与分析、web可视化、量化信号提醒等功能的量化回测项目，并将生成视频口播、封面和插图，以及量化分析等流程沉淀成skill，提升生产效率。一个月涨粉1200+。',
+        '使用AI基于Next、Python、Node Server、pnpm MonoRepo等技术栈，搭建包含数据采集与分析、web可视化、量化信号提醒等功能的量化回测项目，并将生成视频口播、封面和插图，以及量化分析等流程沉淀成skill提效，同时搭配indexTTS、Remotion Skill等AI工具，一个月涨粉1200+。',
       image: {
         src: liveFlightRulesImage,
         alt: 'LiveFlightRules 抖音主页截图',
@@ -286,7 +286,7 @@ export const resume: ResumeData = {
       value: 'github.com/Xooone47/agent-stack-preferences',
       href: 'https://github.com/Xooone47/agent-stack-preferences/tree/main',
       description:
-        '面向AI Coding Agent的技术栈偏好管理工具，支持可视化配置Frontend、Backend、Others等偏好块，并将个人常用技术选择同步到Codex、Claude Code等agent instruction文件。工具提供预设值、字段校验和自定义包名输入，减少在不同项目中反复维护AGENTS.md/CLAUDE.md技术偏好的成本。',
+        '自研面向AI Coding Agent的技术栈偏好管理工具，支持可视化配置Frontend、Backend、Others等偏好块，并将个人常用技术选择同步到Codex、Claude Code等agent instruction文件。工具提供预设值、字段校验和自定义包名输入，减少在不同项目中反复维护AGENTS.md/CLAUDE.md技术偏好的成本。',
       image: {
         src: agentStackPreferencesImage,
         alt: 'Agent Stack Preferences README 截图',
