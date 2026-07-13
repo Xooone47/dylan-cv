@@ -93,6 +93,10 @@ a:hover {
   padding: 54px 60px 58px;
 }
 
+.print-web-link {
+  display: none;
+}
+
 .resume-header {
   align-items: start;
   border-bottom: 2px solid var(--ink);
@@ -653,6 +657,16 @@ h1 {
     min-height: auto;
     padding: 0;
     width: 100%;
+  }
+
+  .print-web-link {
+    color: #697586;
+    display: block;
+    font-size: 10px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    text-align: right;
+    text-decoration: none;
   }
 
   .resume-header {
