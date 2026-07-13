@@ -16,6 +16,7 @@ export type PackageLink = {
   name: string;
   description: string;
   href: string;
+  weeklyDownloads?: number;
 };
 
 export type ShowcaseLink = Link & {
@@ -94,11 +95,11 @@ export const resume: ResumeData = {
     },
     {
       title: '复杂架构能力',
-      text: '曾主导多种类型的复杂需求或系统落地，如：面向多国家、多平台（跨3～4系统）、多终端（pc/h5+android/IOS）、多技术栈（react、vue）、全栈（前端+BFF）等。',
+      text: '曾主导多种类型的复杂需求或系统落地，包括：面向多国多语言、多平台（跨3～4系统）、多终端（pc/h5+android/IOS）、多技术栈（react、vue）、全栈（前端+BFF）等。',
     },
     {
       title: '团队贡献',
-      text: '长期担任前端组长，至多时虚线带5人，主导多个前端工时100~200人天的复杂需求落地；职责含项目管理、架构设计、方案把控等；担任面试官完成30+场面试。',
+      text: '长期担任前端组长，虚线带3~5人，主导多个前端工时100~200人天的复杂需求落地；职责含项目管理、架构设计、方案把控等；担任面试官完成20+场面试。',
     },
     {
       title: 'AI应用',
@@ -108,7 +109,7 @@ export const resume: ResumeData = {
   skills: [
     {
       title: '前端',
-      items: ['HTML', 'JS', 'TS', 'React', 'Vue', 'Webpack', 'Vite', 'H5', '微前端'],
+      items: ['HTML', 'CSS', 'JS', 'TS', 'React', 'Redux', 'Vue', 'Angular', 'Webpack', 'Vite', 'H5', '微前端'],
     },
     {
       title: '后端',
@@ -116,7 +117,7 @@ export const resume: ResumeData = {
     },
     {
       title: '工程化',
-      items: ['性能优化', '监控', 'Docker', 'K8S', 'CI/CD'],
+      items: ['性能优化', '监控', '安全', 'Docker', 'K8S', 'CI/CD', 'Monorepo'],
     },
     {
       title: 'AI',
@@ -138,7 +139,7 @@ export const resume: ResumeData = {
           contributions: [
             '主导搭建双端页面（H5+PC）+ BFF服务（Golang+Chassis），支持Web、Android、IOS三平台。',
             '设计H5/PC双端组件方案，一份代码双端可用，组件内部抹平差异，构建层隔离产物，节省100+人天工时。',
-            '设计双端灰度版本功能，支持按region、user等多维度灰度发布，移动端离线包性能优化等。',
+            '设计双端离线包及灰度版本功能，支持按region、user等多维度灰度发布，移动端离线包性能优化等。',
             'BFF服务实现流量分发与权限体系、对接6个后端服务、配置型CRUD数据管理、离线包版本管理与灰度、全流程监控日志等功能。',
           ],
         },
@@ -163,9 +164,11 @@ export const resume: ResumeData = {
       projects: [
         {
           name: '百度基础架构工具和平台',
-          description: '包括公司级代码、模型托管平台，CI/CD Pipeline平台，敏捷管理平台，图标库平台等。',
+          description: '搭建和维护百度企业级代码托管平台(ICode)，AI模型托管平台(IRepo)，持续集成与交付平台(Agile)，敏捷管理平台(ICafe)，图标库平台(EE-Icon)，开发者画像平台(DevProfile)等。',
           contributions: [
-            '有系统持续集成、云架构、构建打包优化、项目开发和管理流程、编码规范设计、性能监控等工程化能力相关的经验和思考，注重自身工程师素质建设。',
+            '熟悉前端工程化全流程的工具和平台建设，包括：项目管理与敏捷交付、CI/CD、代码和模型托管、云架构、编码规范、性能监控等工程化能力相关，注重自身工程师素质建设。',
+            '主导从零搭建EE-Icon图标库，服务基于Node+Express+Docker，支持图标的在线CRUD操作及一键发布npm包功能，支持15+产品线的规范化图标管理。',
+            '主导或参与包括Angular>React技术重构，前端单测规范，国际化规范搭建，性能监控，前端资源上云等项目。'
           ],
         },
       ],
@@ -239,27 +242,32 @@ export const resume: ResumeData = {
           name: 'eslint-rich-reporter',
           description: 'An eslint html reporter with several useful features.',
           href: 'https://www.npmjs.com/package/eslint-rich-reporter',
+          weeklyDownloads: 16,
         },
         {
           name: 'eslint-plugin-dirs',
           description: 'Eslint Rules for ensure directory names and file names to be coincident.',
           href: 'https://www.npmjs.com/package/eslint-plugin-dirs',
+          weeklyDownloads: 798,
         },
         {
           name: 'build-records-webpack-plugin',
           description:
             'A webpack plugin aiming to collect the build stats, including build type, build speed, build time, user information, add so on.',
           href: 'https://www.npmjs.com/package/build-records-webpack-plugin',
+          weeklyDownloads: 14,
         },
         {
           name: 'eslint-plugin-import-limits',
           description: 'Limit the import statements.',
           href: 'https://www.npmjs.com/package/eslint-plugin-import-limits',
+          weeklyDownloads: 4,
         },
         {
           name: 'vite-plugin-deadcodes',
           description: 'Vite plugin to detect unused files. JS, TS, React, Vue projects are supported.',
           href: 'https://www.npmjs.com/package/vite-plugin-deadcodes',
+          weeklyDownloads: 48,
         },
       ],
     },

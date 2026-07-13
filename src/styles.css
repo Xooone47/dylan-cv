@@ -462,6 +462,13 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.article-link-list .article-title,
+.article-link-list .package-name {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .package-link-list li {
   align-items: start;
 }
@@ -469,6 +476,20 @@ h1 {
 .package-summary {
   display: grid;
   gap: 2px;
+}
+
+.package-name {
+  align-items: baseline;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.article-link-list .package-downloads {
+  color: #93a0ad;
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .showcase-detail {

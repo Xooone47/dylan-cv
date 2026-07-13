@@ -69,6 +69,10 @@ function SummarySkills({ items }: { items: SkillGroup[] }) {
   );
 }
 
+function formatDownloads(downloads: number) {
+  return new Intl.NumberFormat('en-US').format(downloads);
+}
+
 function ShowcaseList({ items }: { items: ShowcaseLink[] }) {
   return (
     <div className="showcase-list">
@@ -88,9 +92,7 @@ function ShowcaseList({ items }: { items: ShowcaseLink[] }) {
             <ul className="article-link-list">
               {item.articles.map((article) => (
                 <li key={article.href}>
-                  <a href={article.href} target="_blank" rel="noreferrer">
-                    {article.title}
-                  </a>
+                  <span className="article-title">{article.title}</span>
                   <a className="list-url" href={article.href} target="_blank" rel="noreferrer">
                     {article.href.replace('https://', '')}
                   </a>
@@ -103,9 +105,14 @@ function ShowcaseList({ items }: { items: ShowcaseLink[] }) {
               {item.packages.map((packageItem) => (
                 <li key={packageItem.href}>
                   <span className="package-summary">
-                    <a href={packageItem.href} target="_blank" rel="noreferrer">
+                    <span className="package-name">
                       {packageItem.name}
-                    </a>
+                      {packageItem.weeklyDownloads !== undefined ? (
+                        <span className="package-downloads">
+                          {`(weekly downloads: ${formatDownloads(packageItem.weeklyDownloads)})`}
+                        </span>
+                      ) : null}
+                    </span>
                     <span>{packageItem.description}</span>
                   </span>
                   <a className="list-url" href={packageItem.href} target="_blank" rel="noreferrer">
