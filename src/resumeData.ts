@@ -273,7 +273,7 @@ export const resume: ResumeData = {
     },
     {
       label: 'AI x 量化自媒体',
-      value: '抖音号：LiveFlightRules',
+      value: '抖音号：LiveFlightRules [7.15 update: 说错话被禁言30天申诉中]',
       description:
         '使用AI基于Next、Python、Node Server、pnpm MonoRepo等技术栈，搭建包含数据采集与分析、web可视化、量化信号提醒等功能的量化回测项目，并将生成视频口播、封面和插图，以及量化分析等流程沉淀成skill提效，同时搭配indexTTS、Remotion Skill等AI工具，一个月涨粉1200+。',
       image: {
