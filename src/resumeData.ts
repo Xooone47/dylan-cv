@@ -109,7 +109,7 @@ export const resume: ResumeData = {
   skills: [
     {
       title: '前端',
-      items: ['HTML', 'CSS', 'JS', 'TS', 'React', 'Redux', 'Vue', 'Angular', 'Webpack', 'Vite', 'H5', '微前端'],
+      items: ['HTML', 'CSS', 'JS', 'TS', 'React', 'Redux', 'Vue', 'Angular', 'Webpack', 'Vite', 'H5', 'Micro Frontend'],
     },
     {
       title: '后端',
@@ -138,9 +138,9 @@ export const resume: ResumeData = {
             'Shopee供应链全场景管理应用，覆盖物流运营、仓储和站点管理、出入库、关键指标、员工管理等，面向8个国家的一线运营、仓库员工、区域管理、中高层等多角色使用。',
           contributions: [
             '主导搭建双端页面（H5+PC）+ BFF服务（Golang+Chassis），支持Web、Android、IOS三平台。',
-            '设计H5/PC双端组件方案，一份代码双端可用，组件内部抹平差异，构建层隔离产物，节省100+人天工时。',
+            '设计H5/PC双端架构，一份代码双端可用，组件/方法内部抹平差异，构建层隔离产物，节省100+人天工时。',
+            '搭建BFF服务，实现流量分发与鉴权体系、对接6个后端服务、配置型数据CRUD、接口数据聚合与加工、离线包版本管理与灰度、全流程监控日志等功能。',
             '设计双端离线包及灰度版本功能，支持按region、user等多维度灰度发布，移动端离线包性能优化等。',
-            'BFF服务实现流量分发与权限体系、对接6个后端服务、配置型CRUD数据管理、离线包版本管理与灰度、全流程监控日志等功能。',
           ],
         },
         {
@@ -273,9 +273,9 @@ export const resume: ResumeData = {
     },
     {
       label: 'AI x 量化自媒体',
-      value: '抖音号：LiveFlightRules [7.15 update: 说错话被禁言30天申诉中]',
+      value: '抖音号：LiveFlightRules [7.15 update: 禁言30天申诉中] ｜ 小红书号: 95139989818',
       description:
-        '使用AI基于Next、Python、Node Server、pnpm MonoRepo等技术栈，搭建包含数据采集与分析、web可视化、量化信号提醒等功能的量化回测项目，并将生成视频口播、封面和插图，以及量化分析等流程沉淀成skill提效，同时搭配indexTTS、Remotion Skill等AI工具，一个月涨粉1200+。',
+        '使用AI基于Next、Python、Node Server、Akshare、yfinance等技术栈，搭建包含数据采集与分析、web可视化、量化信号提醒等功能的量化回测项目，并将生成视频口播、封面和插图，以及量化分析等流程沉淀成skill提效，同时搭配indexTTS、Remotion Skill等AI工具，一个月涨粉1200+。',
       image: {
         src: liveFlightRulesImage,
         alt: 'LiveFlightRules 抖音主页截图',

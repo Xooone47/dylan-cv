@@ -177,16 +177,16 @@ function App() {
   return (
     <main className="app-shell">
       <div className="toolbar" aria-label="简历操作">
-        <span>Siqi Li‘s CV</span>
+        <span></span>
         <button type="button" onClick={() => window.print()} aria-label="导出 PDF">
           <span aria-hidden="true">↓</span>
-          导出 PDF
+          Export PDF
         </button>
       </div>
 
       <article className="resume-sheet" aria-label="黎思奇 2026 简历">
         <a className="print-web-link" href="https://xooone47.github.io/dylan-cv/">
-          Web版: https://xooone47.github.io/dylan-cv/
+          Web Link: https://xooone47.github.io/dylan-cv/
         </a>
         <header className="resume-header">
           <div className="header-main">
