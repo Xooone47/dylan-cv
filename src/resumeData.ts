@@ -79,7 +79,7 @@ export type ResumeData = {
 
 export const resume: ResumeData = {
   name: '黎思奇 · Dylan',
-  profile: ['31岁', '9年工作经验', '离职状态', '中山大学本科(软件工程)', '优才获批'],
+  profile: ['31岁', '9年工作经验', '离职状态', '中山大学本科(软件工程)', '香港优才获批'],
   target: 'Frontend Engineer (Web) / Fullstack Engineer',
   contact: [
     { label: '电话', value: '+86 17620754747', href: 'tel:+8617620754747' },
@@ -273,9 +273,9 @@ export const resume: ResumeData = {
     },
     {
       label: 'AI x 量化自媒体',
-      value: '抖音号：LiveFlightRules [7.15 update: 禁言30天申诉中] ｜ 小红书号: 95139989818',
+      value: '抖音号：LiveFlightRules ｜ 小红书号: 95139989818',
       description:
-        '使用AI基于Next、Python、Node Server、Akshare、yfinance等技术栈，搭建包含数据采集与分析、web可视化、量化信号提醒等功能的量化回测项目，并将生成视频口播、封面和插图，以及量化分析等流程沉淀成skill提效，同时搭配indexTTS、Remotion Skill等AI工具，一个月涨粉1200+。',
+        '使用AI基于Next、Python、Node Server、Akshare、yfinance等技术栈，搭建包含数据采集与分析、web可视化、量化信号提醒等功能的量化回测项目，并将生成视频口播、封面和插图，以及量化分析等流程沉淀成skill提效，同时搭配indexTTS、Remotion Skill等AI工具，高效产出内容。',
       image: {
         src: liveFlightRulesImage,
         alt: 'LiveFlightRules 抖音主页截图',
